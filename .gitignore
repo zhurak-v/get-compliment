@@ -1,0 +1,14 @@
+# Enviroments
+**/*.env
+!**/*.example.env
+
+# IDE
+.vscode/
+.vs/
+.idea/
+
+# Python
+.__pycache__/
+
+# Loggs
+**/*.log

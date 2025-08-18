@@ -1,8 +1,10 @@
 #!/bin/bash
 
-APP_PATH="$(cd "$(dirname "$0")/../src" && pwd)"
+set -e
 
-export APP_PATH
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+APP_PATH="$PROJECT_ROOT/src"
+
 export PYTHONPYCACHEPREFIX="$(dirname "$APP_PATH")/__pycache__"
 export APP_ENV="development"
 

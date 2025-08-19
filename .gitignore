@@ -10,5 +10,5 @@
 # Python
 __pycache__/
 
-# Loggs
+# Logs
 **/*.log

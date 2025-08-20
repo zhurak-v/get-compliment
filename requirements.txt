@@ -10,3 +10,7 @@ requests==2.32.4
 pillow==11.3.0
 python-dotenv==1.1.1
 together==1.5.21
+fastapi==0.115.6
+pydantic==2.10.6
+starlette==0.41.2
+uvicorn[standard]==0.34.0

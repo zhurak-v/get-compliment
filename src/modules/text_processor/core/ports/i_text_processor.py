@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class ITextProccesor(ABC): 
+class ITextProcessor(ABC):
   @abstractmethod
-  def proccess_text(self, input: str) -> str:
+  def process_text(self, caption: str) -> str:
     pass

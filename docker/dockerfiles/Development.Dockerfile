@@ -17,4 +17,4 @@ ENV APP_ENV=development
 ENV PYTHONPATH=/app/src
 
 WORKDIR /app/src
-CMD ["python", "application/main.py"]
+CMD ["python", "-m", "application.main"]

@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from enum import Enum
 
 class ModeType(str, Enum):
-    COMPLIMENT = "compliment"
-    INSULT = "insult"
+    COMPLIMENT = "COMPLIMENT"
+    INSULT = "INSULT"
 
 class IMode(ABC): 
   @abstractmethod

@@ -1,18 +1,25 @@
 from modules.text_processor.infrastructure.together_client import TogetherClient
-from modules.text_processor.core.ports.i_mode import IMode, ModeType;
-from modules.text_processor.core.ports.i_text_processor import ITextProccesor;
+from modules.text_processor.core.ports.i_mode import IMode, ModeType
+from modules.text_processor.core.ports.i_text_processor import ITextProcessor
 
-class TogetherTextProccessor(ITextProccesor):
+class TogetherTextProcessor(ITextProcessor):
     def __init__(self, mode: IMode, client: TogetherClient):
         self.__mode = mode
         self.__client = client
 
-    def proccess_text(self, text: str) -> str:
+    def process_text(self, text: str) -> str:
         model_names = self.__client.get_model_names()
-        model = model_names[0]
         prompt = self.__build_prompt(text)
 
-        return self.__client.create_completion(model, prompt)
+        last_error = None
+        for model in model_names:
+            try:
+                return self.__client.create_completion(model, prompt)
+            except Exception as err:
+                last_error = err
+                continue
+
+        raise RuntimeError(f"All models failed. Last error: {last_error}")
 
     def __build_prompt(self, text: str) -> str:
         match self.__mode.get_mode():

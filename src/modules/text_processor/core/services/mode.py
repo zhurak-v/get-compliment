@@ -1,7 +1,7 @@
 from modules.text_processor.core.ports.i_mode import IMode, ModeType
 
 class Mode(IMode):
-  def __init__(self, variant: ModeType = "compliment"):
+  def __init__(self, variant: ModeType):
         self.__mode: ModeType = variant
 
   def get_mode(self) -> ModeType:
